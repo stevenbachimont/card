@@ -1,9 +1,43 @@
-# React + Vite
+# Les deux mon général... . .  .  .   .    .
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+J'ai fais les deux procédés
+```javascript
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import './Card.scss';
+import styles from './Card.module.css';
 
-Currently, two official plugins are available:
+function StarRating() {
+    const [rating, setRating] = useState(null);
+    const [hover, setHover] = useState(null);
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    return (
+        <div className="star-rating">
+            {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                    <label key={i}>
+                        <input
+                            type="radio"
+                            name="rating"
+                            value={ratingValue}
+                            onClick={() => setRating(ratingValue)}
+                        />
+                        <FontAwesomeIcon
+                            icon={faStar}
+                            className={ratingValue <= (hover || rating) ? styles.goldColor : styles.grayColor}
+                            onMouseEnter={() => setHover(ratingValue)}
+                            onMouseLeave={() => setHover(null)}
+                        />
+                    </label>
+                );
+            })}
+        </div>
+    );
+}
+
+export default StarRating;
+```
+
 # card
