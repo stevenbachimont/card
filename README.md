@@ -1,6 +1,9 @@
 # Les deux mon général... . .  .  .   .    .
+## ICI https://stevenbachimont.github.io/card/
 
-J'ai fais les deux procédés
+### J'ai fais les deux procédés :
+Scss & modules
+
 ```javascript
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
